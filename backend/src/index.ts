@@ -1,6 +1,10 @@
 import { Hono } from 'hono'
 
-const app = new Hono()
+const app = new Hono<{
+	Bindings: {
+		DATABASE_URL: string
+	}
+}>();
 
 app.post(' /api/v1/user/signup',(c)=>{
   return c.text("signup route")
